@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>saludo</title>
+    <script src="../js/utilitarios/saludo.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/estilos.css" />
+  </head>
+  <body>
+    <header
+      class="flex justify-center text-2xl p-10 bg-neutral-600 text-gray-50"
+    >
+      <h2>Reto 25 Evidencia función recuperarTexto</h2>
+    </header>
+    <main class="flex justify-center">
+      <div
+        id="carta"
+        class="flex items-center flex-col size-80 border-blue-600 border-solid border-4 p-8"
+      >
+        <label
+          for="txtNombre"
+          class="block text-sm font-medium leading-6 text-gray-900"
+          >Ingrese su nombre</label
+        >
+        <input
+          class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus:outline-none sm:text-sm sm:leading-6"
+          type="text"
+          id="txtNombre"
+        />
+        <label
+          for="txtApellido"
+          class="block text-sm font-medium leading-6 text-gray-900"
+          >Ingrese su apellido</label
+        >
+        <input
+          class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 focus:outline-none sm:text-sm sm:leading-6"
+          type="text"
+          id="txtApellido"
+        />
+        <input
+          class="rounded-md bg-indigo-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:cursor-pointer"
+          type="button"
+          value="saludar"
+          onclick="saludar()"
+        />
+      </div>
+    </main>
+  </body>
+</html>

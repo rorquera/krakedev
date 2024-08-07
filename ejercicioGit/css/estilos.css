@@ -1,0 +1,7 @@
+#carta {
+  margin-top: 100px;
+}
+
+#carta > * {
+  margin-bottom: 10px;
+}
