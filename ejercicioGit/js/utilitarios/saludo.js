@@ -11,6 +11,8 @@ const saludar = () => {
   mostrarTexto('lblResultado', '¡Bienvenido ' + nombre + ' ' + apellido + '!');
   //Mostrar imagen
   mostrarImagen('imgSaludo', '../img/jackSparrow.gif');
+  //Mostrar texto en caja
+  mostrarTextoEnCaja('txtNombre', '');
 };
 
 const recuperarTexto = (idComponente) => {
@@ -41,4 +43,9 @@ const mostrarTexto = (idComponente, mensaje) => {
 const mostrarImagen = (idComponente, rutaImagen) => {
   let componente = document.getElementById(idComponente);
   componente.src = rutaImagen;
+};
+
+const mostrarTextoEnCaja = (idComponente, valor) => {
+  let componente = document.getElementById(idComponente);
+  componente.value = valor;
 };
