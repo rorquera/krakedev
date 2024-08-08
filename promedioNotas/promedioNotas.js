@@ -5,4 +5,9 @@ calcularPromedioNotas = function () {
   let promedio;
   promedio = calcularPromedio(nota1, nota2, nota3);
   mostrarTexto('txtPromedio', promedio.toFixed(2));
+  if (promedio > 7) {
+    mostrarImagen('imgRespuesta', './img/exito.gif');
+  } else {
+    mostrarImagen('imgRespuesta', './img/falla.gif');
+  }
 };

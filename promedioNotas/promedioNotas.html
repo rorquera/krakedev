@@ -7,19 +7,25 @@
     <script src="./promedioNotas.js"></script>
     <script src="./serviciosPromedioNotas.js"></script>
     <script src="./utilitarios.js"></script>
+    <link rel="stylesheet" href="./css/estilos.css">
   </head>
   <body>
-    <label for="txtNota1">Ingrese la Nota 1</label>
-    <input type="text" id="txtNota1" />
-    <label for="txtNota2">Ingrese la Nota 2</label>
-    <input type="text" id="txtNota2" />
-    <label for="txtNota3">Ingrese la Nota 3</label>
-    <input type="text" id="txtNota3" />
-    <input
-      type="button"
-      value="Calcular Promedio"
-      onclick="calcularPromedioNotas()"
-    />
-    <h2 id="txtPromedio"></h2>
+    <main class="principal">
+      <div class="carta">
+        <label for="txtNota1">Ingrese la Nota 1</label>
+        <input type="text" id="txtNota1" />
+        <label for="txtNota2">Ingrese la Nota 2</label>
+        <input type="text" id="txtNota2" />
+        <label for="txtNota3">Ingrese la Nota 3</label>
+        <input type="text" id="txtNota3" />
+        <input
+          type="button"
+          value="Calcular Promedio"
+          onclick="calcularPromedioNotas()"
+        />
+        <h2 id="txtPromedio"></h2>
+        <img id="imgRespuesta" />
+      </div>
+    </main>
   </body>
 </html>
