@@ -8,7 +8,9 @@ const saludar = () => {
   //Recupera estatura
   let estatura = recuperarFloat('txtEstatura');
   //Mostrar texto
-  mostrarTexto('lblResultado', 'Bienvenido ' + nombre + ' ' + apellido);
+  mostrarTexto('lblResultado', '¡Bienvenido ' + nombre + ' ' + apellido + '!');
+  //Mostrar imagen
+  mostrarImagen('imgSaludo', '../img/jackSparrow.gif');
 };
 
 const recuperarTexto = (idComponente) => {
@@ -34,4 +36,9 @@ const recuperarFloat = (idComponente) => {
 const mostrarTexto = (idComponente, mensaje) => {
   let componente = document.getElementById(idComponente);
   componente.innerText = mensaje;
+};
+
+const mostrarImagen = (idComponente, rutaImagen) => {
+  let componente = document.getElementById(idComponente);
+  componente.src = rutaImagen;
 };

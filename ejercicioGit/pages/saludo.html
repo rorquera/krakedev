@@ -17,7 +17,7 @@
     <main class="flex justify-center">
       <div
         id="carta"
-        class="flex items-center flex-col size-90 border-blue-600 border-solid border-4 p-8"
+        class="flex items-center flex-col grid grid-cols-2 size-90 border-blue-600 border-solid border-4 p-8"
       >
         <label
           for="txtNombre"
@@ -60,13 +60,14 @@
           id="txtEstatura"
         />
         <input
-          class="rounded-md bg-indigo-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:cursor-pointer"
+          class="col-span-2 rounded-md bg-indigo-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:cursor-pointer w-40 mx-auto"
           type="button"
           value="saludar"
           onclick="saludar()"
         />
-        <h3>Resultado</h3>
-        <h3 id="lblResultado"></h3>
+        <h3 class="col-span-2 mx-auto font-semibold">RESULTADO</h3>
+        <img class="col-span-2 mx-auto w-28" id="imgSaludo" />
+        <h3 class="col-span-2 mx-auto" id="lblResultado"></h3>
       </div>
     </main>
   </body>
