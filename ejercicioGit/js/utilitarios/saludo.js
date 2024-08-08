@@ -7,6 +7,8 @@ const saludar = () => {
   let edad = recuperarInt('txtEdad');
   //Recupera estatura
   let estatura = recuperarFloat('txtEstatura');
+  //Mostrar texto
+  mostrarTexto('lblResultado', 'Bienvenido ' + nombre + ' ' + apellido);
 };
 
 const recuperarTexto = (idComponente) => {
@@ -27,4 +29,9 @@ const recuperarFloat = (idComponente) => {
   let valorCaja = recuperarTexto(idComponente);
   let valorFlotante = parseFloat(valorCaja);
   return valorFlotante;
+};
+
+const mostrarTexto = (idComponente, mensaje) => {
+  let componente = document.getElementById(idComponente);
+  componente.innerText = mensaje;
 };
