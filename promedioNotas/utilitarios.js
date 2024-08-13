@@ -32,3 +32,8 @@ const mostrarTextoEnCaja = (idComponente, valor) => {
   let componente = document.getElementById(idComponente);
   componente.value = valor;
 };
+
+const cambiarClaseImagen = (idComponente, nombreClase) => {
+  let cmpImagen = document.getElementById(idComponente);
+  cmpImagen.className = nombreClase;
+};

@@ -1,14 +1,113 @@
+html body {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: gray;
+  color: white;
+  font-size: 30px;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 400px;
+  margin-top: 20px;
+}
+
+input {
+  border-radius: 10px;
+  border-width: 3px;
+  border-style: solid;
+  font-size: 15px;
+}
+
+input[type='text'] {
+  border-color: gainsboro;
+  transition: border-color 0.3s ease;
+}
+
+input[type='text']:hover {
+  border-color: #007bff;
+}
+
+input[type='text']:focus {
+  outline: 0px solid #007bff;
+  border-color: #007bff;
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(128, 207, 252, 1);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(128, 207, 252, 1);
+  box-shadow: 0px 0px 10px 2px rgba(128, 207, 252, 1);
+}
+
+input[type='button'] {
+  margin-top: 15px;
+  background-color: white;
+  border-color: #007bff;
+  color: #007bff;
+}
+
+input[type='button']:hover {
+  background-color: #007bff;
+  transition: background-color 0.3s ease;
+  color: white;
+  cursor: pointer;
+}
+
+input[type='button']:active {
+  background-color: white;
+  color: #007bff;
+  transition: all 0.5s;
+}
+
+input[type='button']:focus {
+  outline: 0px solid #007bff;
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(128, 207, 252, 1);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(128, 207, 252, 1);
+  box-shadow: 0px 0px 10px 2px rgba(128, 207, 252, 1);
+}
+
 .principal {
   display: flex;
   justify-content: center;
+  margin-top: 25px;
 }
 .carta {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 400px;
 }
 
-div > *{
-    padding: 10px;
-    margin-bottom: 10px;
+div > * {
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.exito-size {
+  width: 200px;
+  margin-top: 25px;
+}
+
+.excelente-size {
+  width: 250px;
+}
+
+.falla-size {
+  width: 80px;
+  margin-top: 55px;
+}
+
+.incorrecto-size {
+  width: 60px;
+  margin-top: 65px;
+}
+
+#txtPromedio {
+  position: absolute;
 }

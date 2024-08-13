@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="./css/estilos.css">
   </head>
   <body>
+    <header>
+      <p>PROMEDIO DE NOTAS</p>
+    </header>
     <main class="principal">
       <div class="carta">
         <label for="txtNota1">Ingrese la Nota 1</label>
@@ -23,8 +26,10 @@
           value="Calcular Promedio"
           onclick="calcularPromedioNotas()"
         />
-        <h2 id="txtPromedio"></h2>
-        <img id="imgRespuesta" />
+        <article>
+          <img id="imgRespuesta" />
+          <h2 id="txtPromedio"></h2>
+        </article>
       </div>
     </main>
   </body>
