@@ -67,29 +67,96 @@ const formatearError = (error, leyenda) => {
 const obtenerProvincia = (placa) => {
   let nombreProvincia = null;
   switch (placa.charAt(0)) {
-      case 'A':nombreProvincia = 'Azuay'; break;
-      case 'B':nombreProvincia = 'Bolívar'; break;
-      case 'U':nombreProvincia = 'Cañar'; break;
-      case 'C':nombreProvincia = 'Carchi'; break;
-      case 'X':nombreProvincia = 'Cotopaxi'; break;
-      case 'H':nombreProvincia = 'Chimborazo'; break;
-      case 'O':nombreProvincia = 'El Oro'; break;
-      case 'E':nombreProvincia = 'Esmeraldas'; break;
-      case 'W':nombreProvincia = 'Galápagos'; break;
-      case 'G':nombreProvincia = 'Guayas'; break;
-      case 'I':nombreProvincia = 'Imbabura'; break;
-      case 'L':nombreProvincia = 'Loja'; break;
-      case 'R':nombreProvincia = 'Los Ríos'; break;
-      case 'M':nombreProvincia = 'Manabí'; break;
-      case 'V':nombreProvincia = 'Morona Santiago'; break;
-      case 'N':nombreProvincia = 'Napo'; break;
-      case 'S':nombreProvincia = 'Pastaza'; break;
-      case 'P':nombreProvincia = 'Pichincha'; break;
-      case 'K':nombreProvincia = 'Sucumbíos'; break;
-      case 'Q':nombreProvincia = 'Orellana'; break;
-      case 'T':nombreProvincia = 'Tungurahua'; break;
-      case 'Z':nombreProvincia = 'Zamora Chinchipe'; break;
-      case 'Y':nombreProvincia = 'Santa Elena'; break;
+    case 'A':
+      nombreProvincia = 'Azuay';
+      break;
+    case 'B':
+      nombreProvincia = 'Bolívar';
+      break;
+    case 'U':
+      nombreProvincia = 'Cañar';
+      break;
+    case 'C':
+      nombreProvincia = 'Carchi';
+      break;
+    case 'X':
+      nombreProvincia = 'Cotopaxi';
+      break;
+    case 'H':
+      nombreProvincia = 'Chimborazo';
+      break;
+    case 'O':
+      nombreProvincia = 'El Oro';
+      break;
+    case 'E':
+      nombreProvincia = 'Esmeraldas';
+      break;
+    case 'W':
+      nombreProvincia = 'Galápagos';
+      break;
+    case 'G':
+      nombreProvincia = 'Guayas';
+      break;
+    case 'I':
+      nombreProvincia = 'Imbabura';
+      break;
+    case 'L':
+      nombreProvincia = 'Loja';
+      break;
+    case 'R':
+      nombreProvincia = 'Los Ríos';
+      break;
+    case 'M':
+      nombreProvincia = 'Manabí';
+      break;
+    case 'V':
+      nombreProvincia = 'Morona Santiago';
+      break;
+    case 'N':
+      nombreProvincia = 'Napo';
+      break;
+    case 'S':
+      nombreProvincia = 'Pastaza';
+      break;
+    case 'P':
+      nombreProvincia = 'Pichincha';
+      break;
+    case 'K':
+      nombreProvincia = 'Sucumbíos';
+      break;
+    case 'Q':
+      nombreProvincia = 'Orellana';
+      break;
+    case 'T':
+      nombreProvincia = 'Tungurahua';
+      break;
+    case 'Z':
+      nombreProvincia = 'Zamora Chinchipe';
+      break;
+    case 'Y':
+      nombreProvincia = 'Santa Elena';
+      break;
   }
   return nombreProvincia;
+};
+
+const obtenerTipoVehiculo = (placa) => {
+  let tipoVehiculo = null;
+  let segundaLetra = placa.charAt(1);
+
+  if (segundaLetra === 'A' || segundaLetra === 'Z') {
+    tipoVehiculo = 'Taxi/Autobus';
+  } else if (segundaLetra === 'E') {
+    tipoVehiculo = 'Gubernamental';
+  } else if (segundaLetra === 'X') {
+    tipoVehiculo = 'Uso Oficial';
+  } else if (segundaLetra === 'S') {
+    tipoVehiculo = 'Gobierno Provincial';
+  } else if (segundaLetra === 'M') {
+    tipoVehiculo = 'Municipal';
+  } else {
+    tipoVehiculo = 'Particular';
+  }
+
+  return tipoVehiculo;
 };
