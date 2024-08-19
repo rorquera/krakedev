@@ -10,8 +10,8 @@ header {
   justify-content: center;
   align-items: center;
   padding: 3rem;
-  margin-bottom: 50px;
   background-color: rgb(244, 244, 244);
+  margin-bottom: 20px;
 }
 
 main {
@@ -24,6 +24,7 @@ article {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 }
 
 article > * {
@@ -94,10 +95,46 @@ span {
   font-size: 16px;
   font-weight: bold;
 }
+
 #lblValidacion {
   color: red;
 }
 
-#lblResultadoPlaca{
-    font-weight: bolder;
+#lblResultadoPlaca {
+  font-weight: bolder;
+}
+
+.imgArticle {
+  width: 32rem;
+  height: 24rem;
+  margin-bottom: 0px;
+}
+
+.div-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-style: solid;
+  border-color: dodgerblue;
+  border-width: 1px;
+  flex-grow: 1;
+  width: 25rem;
+  height: 22rem;
+  background-color: rgb(244, 244, 244);
+}
+
+.div-container > * {
+  margin-bottom: 10px;
+}
+
+.div-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: end;
+  align-items: center;
+}
+
+.div-grid > * {
+  margin-bottom: 10px;
 }

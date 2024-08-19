@@ -17,12 +17,27 @@
     </header>
     <main>
       <article>
-        <label>Ingrese la placa</label>
-        <input type="text" name="" id="txtPlaca" />
-        <input type="button" value="Validar" onclick="validarPlaca()" />
-
-        <label for="" id="lblResultadoPlaca"></label>
-        <label for="" id="lblValidacion"></label>
+        <img src="./img/autos.webp" class="imgArticle" />
+      </article>
+      <article>
+        <div class="div-container">
+          <label>Ingrese la placa</label>
+          <input type="text" name="" id="txtPlaca" />
+          <input type="button" value="Validar" onclick="validarPlaca()" />
+          <label for="" id="lblResultadoPlaca"></label>
+          <label for="" id="lblValidacion"></label>
+        </div>
+      </article>
+      <article>
+        <div class="div-container">
+          <label>Resultado</label>
+         
+            <label style="margin-top: 10px;font-style: italic;">Placa</label>
+            <span id="lblResPlaca"></span>
+            <label style="font-style: italic;">Provincia</label>
+            <span id="lblResProvincia"></span>
+    
+        </div>
       </article>
     </main>
   </body>
