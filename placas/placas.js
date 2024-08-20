@@ -78,3 +78,17 @@ const mostrarPlacaGeneral = (placa) => {
     mostrarTexto('txtNumPlaca', '');
   }
 };
+
+const limpiar = () => {
+  mostrarTexto('txtCabeceraPlaca', '');
+  mostrarTexto('txtNumPlaca', '');
+  mostrarTexto('lblResVehiculo', '');
+  mostrarTexto('lblResProvincia', '');
+  mostrarTexto('lblValidacion', '');
+  mostrarTexto('lblResPlaca', '');
+  mostrarTextoEnCaja('txtPlaca', '');
+  mostrarTexto('lblResultadoPlaca', '');
+  mostrarTexto('lblResPicoPlaca', '');
+  cambiarClaseImagen('txtCabeceraPlaca', '');
+  cambiarClaseImagen('div-placa', '');
+};
