@@ -160,3 +160,20 @@ const obtenerTipoVehiculo = (placa) => {
 
   return tipoVehiculo;
 };
+
+const obtenerDiaPicoYPlaca = (placa) => {
+  let diaPicoPlaca;
+  let ultimoCaracter = placa.charAt(placa.length - 1);
+  if (ultimoCaracter === '1' || ultimoCaracter === '2') {
+    diaPicoPlaca = 'Lunes';
+  } else if (ultimoCaracter === '3' || ultimoCaracter === '4') {
+    diaPicoPlaca = 'Martes';
+  } else if (ultimoCaracter === '5' || ultimoCaracter === '6') {
+    diaPicoPlaca = 'Miércoles';
+  } else if (ultimoCaracter === '7' || ultimoCaracter === '8') {
+    diaPicoPlaca = 'Jueves';
+  } else if (ultimoCaracter === '9' || ultimoCaracter === '0') {
+    diaPicoPlaca = 'Viernes';
+  }
+  return diaPicoPlaca;
+};
