@@ -12,6 +12,9 @@ header {
   padding: 3rem;
   background-color: rgb(244, 244, 244);
   margin-bottom: 20px;
+  border-bottom-style: solid;
+  border-bottom-color: dodgerblue;
+  border-width: 3px;
 }
 
 main {
