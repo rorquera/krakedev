@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./juego.js"></script>
+    <script src="./serviciosJuego.js"></script>
+    <script src="./utilitarios.js"></script>
+  </head>
+  <body>
+    <h1>JUEGA PIEDRA PAPEL O TIJERA</h1>
+
+    <h2>PUNTOS USUARIO</h2>
+    <h2 id="txtPtsUsuario">0</h2>
+    <h2>PUNTOS COMPUTADOR</h2>
+    <h2 id="txtPtsCompu">0</h2>
+    <img src="./imagenes/piedra.png" alt="piedra" onclick="jugar('piedra')" />
+    <img src="./imagenes/papel.png" alt="papel" onclick="jugar('papel')" />
+    <img src="./imagenes/tijera.png" alt="tijera" onclick="jugar('tijera')" />
+    <img id="imgJuego" />
+    <h2 id="txtResultado"></h2>
+    <input type="button" value="Limpiar" onclick="limpiar()">
+  </body>
+</html>
