@@ -1,0 +1,34 @@
+input[type='button'] {
+    margin-top: 15px;
+    margin-bottom: 2rem;
+    background-color: orange;
+    border-color: orange;
+    border-style: solid;
+    color: white;
+    width: 9rem;
+    height: 4rem;
+    font-size: 28px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    -webkit-box-shadow: 10px 10px 145px 14px rgba(0,0,0,0.4);
+    -moz-box-shadow: 10px 10px 145px 14px rgba(0,0,0,0.4);
+    box-shadow: 10px 10px 145px 14px rgba(0,0,0,0.4);
+  }
+  
+  input[type='button']:hover {
+    background-color: lightgreen;
+    border-color: lightgreen;
+    transition: background-color 0.3s ease;
+    color: white;
+    cursor: pointer;
+  }
+  
+  input[type='button']:active {
+    background-color: white;
+    color: #007bff;
+    transition: all 0.5s;
+  }
+  
+  input[type='button']:focus {
+    outline: 0px solid #007bff;
+  }
