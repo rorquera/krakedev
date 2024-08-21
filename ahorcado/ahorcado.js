@@ -29,3 +29,7 @@ const verificarMayuscula = (password) => {
   }
   return true;
 };
+
+const mostrarLetra = (letra, posicion) => {
+  mostrarTexto('div' + posicion, letra);
+};
