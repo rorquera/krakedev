@@ -33,3 +33,13 @@ const verificarMayuscula = (password) => {
 const mostrarLetra = (letra, posicion) => {
   mostrarTexto('div' + posicion, letra);
 };
+
+const validar = (letra) => {
+  let letrasEncontradas = 0;
+  for (i = 0; i < palabraSecreta.length; i++) {
+    if (letra === palabraSecreta.charAt(i)) {
+      mostrarLetra(letra, i);
+      letrasEncontradas += 1;
+    }
+  }
+};
