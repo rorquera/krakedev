@@ -43,3 +43,12 @@ const validar = (letra) => {
     }
   }
 };
+
+const ingresarLetra = () => {
+  let letraIngresada = recuperarTexto('txtLetra');
+  if (esMayuscula(letraIngresada)) {
+    validar(letraIngresada);
+  } else {
+    alert('SOLO SE ACEPTAN MAYÚSCULAS');
+  }
+};
