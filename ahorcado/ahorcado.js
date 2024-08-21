@@ -49,6 +49,7 @@ const validar = (letra) => {
   if (letrasEncontradas == 0) {
     alert('LA LETRA NO ES PARTE DE LA PALABRA');
     errores += 1;
+    mostrarAhorcado();
   }
 };
 
@@ -69,4 +70,8 @@ const ingresarLetra = () => {
   if (intentos === 10) {
     alert('HA PERDIDO');
   }
+};
+
+const mostrarAhorcado = () => {
+  mostrarImagen('ahorcadoImagen', './Ahorcado_0' + errores + '.png');
 };
