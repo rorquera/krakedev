@@ -1,11 +1,31 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe
+let palabraSecreta;
 const esMayuscula = (caracter) => {
-    let caracterMayuscula;
-    let codigo = caracter.charCodeAt(0);
-    if (codigo >= 65 && codigo <= 90) {
-      caracterMayuscula = true;
-    } else {
-      caracterMayuscula = false;
+  let caracterMayuscula;
+  let codigo = caracter.charCodeAt(0);
+  if (codigo >= 65 && codigo <= 90) {
+    caracterMayuscula = true;
+  } else {
+    caracterMayuscula = false;
+  }
+  return caracterMayuscula;
+};
+
+const guardarPalabra = () => {
+  let password = recuperarTexto('txtSecreta');
+  if (password.length !== 5 || !verificarMayuscula(password)) {
+    alert('Debe ingresar una palabra de 5 letras mayúsculas');
+  } else {
+    palabraSecreta = password;
+    console.log(palabraSecreta);
+  }
+};
+
+const verificarMayuscula = (password) => {
+  for (let i = 0; i < password.length; i++) {
+    if (!esMayuscula(password.charAt(i))) {
+      return false;
     }
-    return caracterMayuscula;
-  };
+  }
+  return true;
+};
