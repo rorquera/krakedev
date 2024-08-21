@@ -20,7 +20,7 @@ const guardarPalabra = () => {
     alert('Debe ingresar una palabra de 5 letras mayúsculas');
   } else {
     palabraSecreta = password;
-    console.log(palabraSecreta);
+    console.log(palabraSecreta + ' ' + coincidencias);
   }
 };
 
@@ -54,24 +54,34 @@ const validar = (letra) => {
 };
 
 const ingresarLetra = () => {
-  let letraIngresada = recuperarTexto('txtLetra');
-  intentos += 1;
-  if (esMayuscula(letraIngresada)) {
-    validar(letraIngresada);
-  } else {
-    alert('SOLO SE ACEPTAN MAYÚSCULAS');
-  }
-  console.log('coincidencias: ' + coincidencias);
-  console.log('errores: ' + errores);
-  console.log('intentos: ' + intentos);
-  if (coincidencias === 5) {
-    alert('HA GANADO');
-  }
-  if (intentos === 10) {
-    alert('HA PERDIDO');
+  if (continuarJugando()) {
+    intentos += 1;
+    let letraIngresada = recuperarTexto('txtLetra');
+    if (esMayuscula(letraIngresada)) {
+      validar(letraIngresada);
+    } else {
+      alert('SOLO SE ACEPTAN MAYÚSCULAS');
+    }
+    console.log('coincidencias: ' + coincidencias);
+    console.log('errores: ' + errores);
+    console.log('intentos: ' + intentos);
+
+    if (coincidencias === 5) {
+      mostrarImagen('ahorcadoImagen', 'ganador.gif');
+    } else if (intentos === 10) {
+      mostrarImagen('ahorcadoImagen', 'gameOver.gif');
+    }
   }
 };
 
 const mostrarAhorcado = () => {
   mostrarImagen('ahorcadoImagen', './Ahorcado_0' + errores + '.png');
+};
+
+const continuarJugando = () => {
+  let estaActivo = true;
+  if (intentos === 10 || coincidencias === 5) {
+    estaActivo = false;
+  }
+  return estaActivo;
 };
