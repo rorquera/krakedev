@@ -21,7 +21,7 @@ const validarRango = (rango) => {
 };
 
 const mostrarResultados = (arregloNumeros) => {
-  let tabla = '<table><tr><th>NUMEROS ALEATORIOS</th></tr>';
+  let tabla = '<table class="tabla-azul"><tr><th>NUMEROS ALEATORIOS</th></tr>';
   for (let i = 0; i < arregloNumeros.length; i++) {
     tabla += '<tr><td>' + arregloNumeros[i] + '</td></tr>';
   }
