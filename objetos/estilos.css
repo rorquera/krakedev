@@ -1,0 +1,22 @@
+table.tabla-azul {
+    width: 30%;
+    margin-top: 15px;
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-width: 2px;
+    border-color: #7EA8F8;
+    border-style: solid;
+    color: #000000;
+  }
+  
+  table.tabla-azul td, table.tabla-azul th {
+    border-width: 2px;
+    border-color: #7EA8F8;
+    border-style: solid;
+    padding: 5px;
+  }
+  
+  table.tabla-azul th {
+    background-color: #7EA8F8;
+  }
+  

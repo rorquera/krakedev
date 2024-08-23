@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./clientes.js"></script>
+    <script src="./utilitarios.js"></script>
+    <link rel="stylesheet" href="./estilos.css" />
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: center;
+      "
+    >
+      <label for="cedula" id="lblCedula">CÉDULA</label>
+      <input type="text" id="cedula" />
+      <label for="nombre" id="lblNombre">NOMBRE</label>
+      <input type="text" id="nombre" />
+      <label for="edad" id="lblEdad">EDAD</label>
+      <input type="text" id="edad" />
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <input type="button" value="AGREGAR" onclick="agregar()" />
+      <input type="button" value="MOSTRAR" onclick="mostrar()" />
+      <input type="button" value="GUARDAR" onclick="guardar()" />
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <label for="buscaCedula" id="lblBuscaCedula" style="margin-right: 10px"
+        >CÉDULA:</label
+      >
+      <input type="text" id="buscaCedula" />
+      <input type="button" value="BUSCAR" onclick="buscar()" />
+    </div>
+    <div
+      id="tabla"
+      style="
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+      "
+    ></div>
+  </body>
+</html>
