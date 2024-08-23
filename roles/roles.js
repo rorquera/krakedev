@@ -13,8 +13,8 @@ let empleados = [
   },
   {
     cedula: '1234567890',
-    nombre: 'Luisa',
-    apellido: 'Gonzalez',
+    nombre: 'Daniel',
+    apellido: 'Pérez',
     sueldo: 900.0,
   },
 ];
