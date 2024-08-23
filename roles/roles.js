@@ -19,11 +19,18 @@ let empleados = [
   },
 ];
 
+let esNuevo = true;
+
 const mostrarOpcionEmpleado = () => {
   mostrarComponente('divEmpleado');
   ocultarComponente('divRol');
   ocultarComponente('divResumen');
   mostrarEmpleados();
+  deshabilitarComponente('txtCedula');
+  deshabilitarComponente('txtNombre');
+  deshabilitarComponente('txtApellido');
+  deshabilitarComponente('txtSueldo');
+  deshabilitarComponente('btnGuardar');
 };
 const mostrarOpcionRol = () => {
   mostrarComponente('divRol');
@@ -48,4 +55,11 @@ const mostrarEmpleados = () => {
   }
   tabla += '</table>';
   mostrarHtml('tablaEmpleados', tabla);
+};
+const ejecutarNuevo = () => {
+  habilitarComponente('txtCedula');
+  habilitarComponente('txtNombre');
+  habilitarComponente('txtApellido');
+  habilitarComponente('txtSueldo');
+  habilitarComponente('btnGuardar');
 };
