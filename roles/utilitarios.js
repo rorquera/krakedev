@@ -50,3 +50,9 @@ deshabilitarComponente = function(idComponente){
 habilitarComponente = function(idComponente){
     document.getElementById(idComponente).disabled = false;
 }
+
+const mostrarHtml = (idComponente, html) => {
+    let componente;
+    componente = document.getElementById(idComponente);
+    componente.innerHTML = html;
+  };
