@@ -87,35 +87,56 @@ const agregarEmpleado = (empleado) => {
 };
 const guardar = () => {
   if (validarDatosEmpleado()) {
-    if (realizarGuardado()) {
-      deshabilitarEmpleado();
+    if (afectarDatos()) {
+      limpiar();
     }
   }
 };
 const validarDatosEmpleado = () => {
-  const empleado = crearEmpleadoNuevo();
+  const empleado = recuperarDatosEmpleado();
   if (esEmpleadoValido(empleado)) {
     return true;
   } else {
     return false;
   }
 };
-const realizarGuardado = () => {
-  let usuarioAgregado = false;
+const afectarDatos = () => {
   if (esNuevo == true) {
-    const empleado = crearEmpleadoNuevo();
-    usuarioAgregado = agregarEmpleado(empleado);
-    if (usuarioAgregado) {
-      alert('EMPLEADO GUARDADO CORRECTAMENTE.');
-      mostrarEmpleados();
-      return true;
-    } else {
-      alert(`YA EXISTE UN EMPLEADO CON LA CÉDULA ${empleado.cedula}.`);
-      return false;
-    }
+    return guardarEmpleado();
+  } else {
+    return modificarEmpleado();
   }
 };
-const crearEmpleadoNuevo = () => {
+const guardarEmpleado = () => {
+  let empleadoAgregado = false;
+  const empleado = recuperarDatosEmpleado();
+  empleadoAgregado = agregarEmpleado(empleado);
+  if (empleadoAgregado) {
+    alert('EMPLEADO GUARDADO CORRECTAMENTE.');
+    mostrarEmpleados();
+    return true;
+  } else {
+    alert(`YA EXISTE UN EMPLEADO CON LA CÉDULA ${empleado.cedula}.`);
+    return false;
+  }
+};
+const modificarEmpleado = () => {
+  const empleadoModificado = recuperarDatosEmpleado();
+  const empleadoBDD = buscarEmpleado(empleadoModificado.cedula);
+  let copiaEmpleadoBDD = JSON.parse(JSON.stringify(empleadoBDD));
+  empleadoBDD.nombre = empleadoModificado.nombre;
+  empleadoBDD.apellido = empleadoModificado.apellido;
+  empleadoBDD.sueldo = empleadoModificado.sueldo;
+  if (JSON.stringify(empleadoBDD) !== JSON.stringify(copiaEmpleadoBDD)) {
+    alert('EMPLEADO MODIFICADO EXITOSAMENTE.');
+    mostrarEmpleados();
+    return true;
+  } else {
+    alert('NO SE PUDO MODIFICAR EL EMPLEADO.');
+    return false;
+  }
+};
+const recuperarDatosEmpleado = () => {
   const empleado = {};
   empleado.cedula = recuperarTexto('txtCedula');
   empleado.nombre = recuperarTexto('txtNombre');
@@ -214,4 +235,35 @@ const esEmpleadoValido = (empleado) => {
     mostrarTexto('lblErrorSueldo', '');
   }
   return esValido;
+};
+const ejecutarBusqueda = () => {
+  let empleado = buscarEmpleado(recuperarTexto('txtBusquedaCedula'));
+  if (empleado == null) {
+    alert('EMPLEADO NO EXISTE');
+    esNuevo = false;
+  } else {
+    mostrarDatosEmpleado(empleado);
+    habilitarEmpleadoModificar();
+  }
+};
+const mostrarDatosEmpleado = (empleado) => {
+  mostrarTextoEnCaja('txtCedula', empleado.cedula);
+  mostrarTextoEnCaja('txtNombre', empleado.nombre);
+  mostrarTextoEnCaja('txtApellido', empleado.apellido);
+  mostrarTextoEnCaja('txtSueldo', empleado.sueldo);
+};
+const habilitarEmpleadoModificar = () => {
+  deshabilitarComponente('txtCedula');
+  habilitarComponente('txtNombre');
+  habilitarComponente('txtApellido');
+  habilitarComponente('txtSueldo');
+  habilitarComponente('btnGuardar');
+};
+const limpiar = () => {
+  mostrarTextoEnCaja('txtCedula', '');
+  mostrarTextoEnCaja('txtNombre', '');
+  mostrarTextoEnCaja('txtApellido', '');
+  mostrarTextoEnCaja('txtSueldo', '');
+  esNuevo = false;
+  deshabilitarEmpleado();
 };
