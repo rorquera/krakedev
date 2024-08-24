@@ -19,13 +19,16 @@ let empleados = [
   },
 ];
 
-let esNuevo = true;
+let esNuevo = false;
 
 const mostrarOpcionEmpleado = () => {
   mostrarComponente('divEmpleado');
   ocultarComponente('divRol');
   ocultarComponente('divResumen');
   mostrarEmpleados();
+  deshabilitarEmpleado();
+};
+const deshabilitarEmpleado = () => {
   deshabilitarComponente('txtCedula');
   deshabilitarComponente('txtNombre');
   deshabilitarComponente('txtApellido');
@@ -62,4 +65,145 @@ const ejecutarNuevo = () => {
   habilitarComponente('txtApellido');
   habilitarComponente('txtSueldo');
   habilitarComponente('btnGuardar');
+  esNuevo = true;
+};
+const buscarEmpleado = (cedula) => {
+  let empleadoEncontrado = null;
+  for (let empleado of empleados) {
+    if (empleado.cedula == cedula) {
+      empleadoEncontrado = empleado;
+      return empleadoEncontrado;
+    }
+  }
+  return empleadoEncontrado;
+};
+const agregarEmpleado = (empleado) => {
+  let empleadoAgregado = false;
+  if (buscarEmpleado(empleado.cedula) == null) {
+    empleados.push(empleado);
+    empleadoAgregado = true;
+  }
+  return empleadoAgregado;
+};
+const guardar = () => {
+  if (validarDatosEmpleado()) {
+    if (realizarGuardado()) {
+      deshabilitarEmpleado();
+    }
+  }
+};
+const validarDatosEmpleado = () => {
+  const empleado = crearEmpleadoNuevo();
+  if (esEmpleadoValido(empleado)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+const realizarGuardado = () => {
+  let usuarioAgregado = false;
+  if (esNuevo == true) {
+    const empleado = crearEmpleadoNuevo();
+    usuarioAgregado = agregarEmpleado(empleado);
+    if (usuarioAgregado) {
+      alert('EMPLEADO GUARDADO CORRECTAMENTE.');
+      mostrarEmpleados();
+      return true;
+    } else {
+      alert(`YA EXISTE UN EMPLEADO CON LA CÉDULA ${empleado.cedula}.`);
+      return false;
+    }
+  }
+};
+const crearEmpleadoNuevo = () => {
+  const empleado = {};
+  empleado.cedula = recuperarTexto('txtCedula');
+  empleado.nombre = recuperarTexto('txtNombre');
+  empleado.apellido = recuperarTexto('txtApellido');
+  empleado.sueldo = recuperarTexto('txtSueldo');
+  return empleado;
+};
+const validarNumero = (numero) => {
+  for (let i = 0; i < numero.length; i++) {
+    if (!esDigito(numero.charAt(i))) {
+      return false;
+    }
+  }
+  return true;
+};
+const esCedulaValida = (cedula) => {
+  if (cedula.length == 10 && validarNumero(cedula)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+const esNombreApellidoMayuscula = (nombreApellido) => {
+  for (let i = 0; i < nombreApellido.length; i++) {
+    if (!esMayuscula(nombreApellido.charAt(i))) {
+      return false;
+    }
+  }
+  return true;
+};
+const esNombreApellidoValido = (nombreApellido) => {
+  if (nombreApellido.length >= 3 && esNombreApellidoMayuscula(nombreApellido)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+const esSueldoValido = (sueldo) => {
+  if (tienePuntoFlotante(sueldo)) {
+    const sueldoFlotante = parseFloat(sueldo);
+    if (
+      !isNaN(sueldoFlotante) &&
+      sueldoFlotante >= 400 &&
+      sueldoFlotante <= 5000
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
+const tienePuntoFlotante = (sueldo) => {
+  for (let i = 0; i < sueldo.length; i++) {
+    if (esPunto(sueldo.charAt(i))) {
+      return true;
+    }
+  }
+  return false;
+};
+const esEmpleadoValido = (empleado) => {
+  let esValido = true;
+  if (!esCedulaValida(empleado.cedula)) {
+    esValido = false;
+    mostrarTexto(
+      'lblErrorCedula',
+      'La cédula debe ser un dígito de 10 carcteres.'
+    );
+  }
+  if (!esNombreApellidoValido(empleado.nombre)) {
+    esValido = false;
+    mostrarTexto(
+      'lblErrorNombre',
+      'El nombre debe tener al menos 3 letras y todas deben ser mayúsculas.'
+    );
+  }
+  if (!esNombreApellidoValido(empleado.apellido)) {
+    esValido = false;
+    mostrarTexto(
+      'lblErrorApellido',
+      'El apellido debe tener al menos 3 letras y todas deben ser mayúsculas.'
+    );
+  }
+  if (!esSueldoValido(empleado.sueldo)) {
+    esValido = false;
+    mostrarTexto(
+      'lblErrorSueldo',
+      'El sueldo debe ser un número flotante (ej:400.00) entre 400 y 5000.'
+    );
+  }
+  return esValido;
 };
