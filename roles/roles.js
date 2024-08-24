@@ -183,6 +183,8 @@ const esEmpleadoValido = (empleado) => {
       'lblErrorCedula',
       'La cédula debe ser un dígito de 10 carcteres.'
     );
+  } else {
+    mostrarTexto('lblErrorCedula', '');
   }
   if (!esNombreApellidoValido(empleado.nombre)) {
     esValido = false;
@@ -190,6 +192,8 @@ const esEmpleadoValido = (empleado) => {
       'lblErrorNombre',
       'El nombre debe tener al menos 3 letras y todas deben ser mayúsculas.'
     );
+  } else {
+    mostrarTexto('lblErrorNombre', '');
   }
   if (!esNombreApellidoValido(empleado.apellido)) {
     esValido = false;
@@ -197,6 +201,8 @@ const esEmpleadoValido = (empleado) => {
       'lblErrorApellido',
       'El apellido debe tener al menos 3 letras y todas deben ser mayúsculas.'
     );
+  } else {
+    mostrarTexto('lblErrorApellido', '');
   }
   if (!esSueldoValido(empleado.sueldo)) {
     esValido = false;
@@ -204,6 +210,8 @@ const esEmpleadoValido = (empleado) => {
       'lblErrorSueldo',
       'El sueldo debe ser un número flotante (ej:400.00) entre 400 y 5000.'
     );
+  } else {
+    mostrarTexto('lblErrorSueldo', '');
   }
   return esValido;
 };
