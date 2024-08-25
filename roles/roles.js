@@ -283,3 +283,28 @@ const buscarPorRol = () => {
     alert('El empleado no existe');
   }
 };
+const calcularAporteEmpleado = (sueldo) => {
+  return (sueldo * 9.45) / 100;
+};
+const calcularValorAPagar = (sueldo, aporteIESS, descuento) => {
+  return sueldo - aporteIESS - descuento;
+};
+const calcularRol = () => {
+  const sueldo = recuperarFloatDiv('infoSueldo');
+  const descuento = recuperarTexto('txtDescuentos');
+  const descuentoFloat = parseFloat(descuento);
+  const regex = /^\d+\.\d+$/;
+  const esFlotante = regex.test(descuento.toString());
+  if (esFlotante && descuentoFloat >= 0 && descuentoFloat <= sueldo) {
+    const aporteIESS = calcularAporteEmpleado(sueldo);
+    const pago = calcularValorAPagar(sueldo, aporteIESS, descuentoFloat);
+    mostrarTexto('infoIESS', aporteIESS);
+    mostrarTexto('infoPago', pago);
+    mostrarTexto('lblErrorDescuentos', '');
+  } else {
+    mostrarTexto(
+      'lblErrorDescuentos',
+      'El descuento debe ser un número flotante (ej: 41.12) mayor a cero y menor al valor del sueldo.'
+    );
+  }
+};
