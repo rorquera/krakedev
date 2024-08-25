@@ -267,3 +267,19 @@ const limpiar = () => {
   esNuevo = false;
   deshabilitarEmpleado();
 };
+
+/*********************/
+//      ROLES         /
+/*********************/
+
+const buscarPorRol = () => {
+  const cedula = recuperarTexto('txtBusquedaCedulaRol');
+  const empleado = buscarEmpleado(cedula);
+  if (empleado != null) {
+    mostrarTexto('infoCedula', empleado.cedula);
+    mostrarTexto('infoNombre', `${empleado.nombre} ${empleado.apellido}`);
+    mostrarTexto('infoSueldo', empleado.sueldo);
+  } else {
+    alert('El empleado no existe');
+  }
+};
