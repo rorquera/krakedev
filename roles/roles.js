@@ -301,8 +301,8 @@ const calcularRol = () => {
   if (esFlotante && descuentoFloat >= 0 && descuentoFloat <= sueldo) {
     const aporteIESS = calcularAporteEmpleado(sueldo);
     const pago = calcularValorAPagar(sueldo, aporteIESS, descuentoFloat);
-    mostrarTexto('infoIESS', aporteIESS);
-    mostrarTexto('infoPago', pago);
+    mostrarTexto('infoIESS', aporteIESS.toFixed(2));
+    mostrarTexto('infoPago', pago.toFixed(2));
     mostrarTexto('lblErrorDescuentos', '');
     habilitarComponente('btnGuardarRol');
   } else {
@@ -368,16 +368,16 @@ const mostrarRoles = () => {
                   <th>CEDULA</th>
                   <th>NOMBRE</th>
                   <th>VALOR PAGAR</th>
-                  <th>APORTE EMPLEADO</th>
                   <th>APORTE EMPLEADOR</th>
+                  <th>APORTE EMPLEADO</th>
                 </tr>`;
   for (let rol of roles) {
     tabla += `<tr>
                 <td>${rol.cedula}</td>
                 <td>${rol.nombre}</td>
                 <td>${rol.valorPagar}</td>
-                <td>${rol.aporteIess}</td>
                 <td>${rol.aporteEmpleador}</td>
+                <td>${rol.aporteIess}</td>
               </tr>`;
   }
   tabla += '</table>';
@@ -385,15 +385,18 @@ const mostrarRoles = () => {
 };
 
 const mostrarTotales = () => {
-  let totalAPagar = 0;
-  let totalEmpleado = 0;
-  let totalEmpleador = 0;
+  let totalAPagar = 0.0;
+  let totalEmpleado = 0.0;
+  let totalEmpleador = 0.0;
+  let totalNomina = 0.0;
   for (let rol of roles) {
-    totalAPagar += parseFloat(rol.valorPagar);
-    totalEmpleado += parseFloat(rol.aporteIess);
-    totalEmpleador += parseFloat(rol.aporteEmpleador);
+    totalAPagar += rol.valorPagar;
+    totalEmpleado += rol.aporteIess;
+    totalEmpleador += rol.aporteEmpleador;
   }
-  mostrarTexto('infoTotalPago', totalAPagar);
-  mostrarTexto('infoAporteEmpleado', totalEmpleado);
-  mostrarTexto('infoAporteEmpresa', totalEmpleador);
+  totalNomina = totalAPagar + totalEmpleado + totalEmpleador;
+  mostrarTexto('infoTotalPago', totalAPagar.toFixed(2));
+  mostrarTexto('infoAporteEmpleado', totalEmpleado.toFixed(2));
+  mostrarTexto('infoAporteEmpresa', totalEmpleador.toFixed(2));
+  mostrarTexto('infoTotalNomina', totalNomina.toFixed(2));
 };
