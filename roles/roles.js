@@ -19,6 +19,7 @@ let empleados = [
   },
 ];
 
+const roles = [];
 let esNuevo = false;
 
 const mostrarOpcionEmpleado = () => {
@@ -39,6 +40,7 @@ const mostrarOpcionRol = () => {
   mostrarComponente('divRol');
   ocultarComponente('divEmpleado');
   ocultarComponente('divResumen');
+  deshabilitarComponente('btnGuardarRol');
 };
 const mostrarOpcionResumen = () => {
   mostrarComponente('divResumen');
@@ -280,7 +282,7 @@ const buscarPorRol = () => {
     mostrarTexto('infoNombre', `${empleado.nombre} ${empleado.apellido}`);
     mostrarTexto('infoSueldo', empleado.sueldo);
   } else {
-    alert('El empleado no existe');
+    alert('EL EMPLEADO NO EXISTE.');
   }
 };
 const calcularAporteEmpleado = (sueldo) => {
@@ -301,10 +303,59 @@ const calcularRol = () => {
     mostrarTexto('infoIESS', aporteIESS);
     mostrarTexto('infoPago', pago);
     mostrarTexto('lblErrorDescuentos', '');
+    habilitarComponente('btnGuardarRol');
   } else {
     mostrarTexto(
       'lblErrorDescuentos',
       'El descuento debe ser un número flotante (ej: 41.12) mayor a cero y menor al valor del sueldo.'
     );
   }
+};
+
+/*********************/
+//      RESUMEN       /
+/*********************/
+
+const buscarRol = (cedula) => {
+  for (let rol of roles) {
+    if (rol.cedula == cedula) {
+      return rol;
+    } else {
+      return null;
+    }
+  }
+};
+
+const agregarRol = (rol) => {
+  for (let i = 0; i < roles.length; i++) {
+    if (roles[i].cedula == rol.cedula) {
+      alert(`YA ESXISTE UN ROL PARA LA CÉDULA ${rol.cedula}.`);
+      return;
+    }
+  }
+  roles.push(rol);
+  alert(`EL ROL PARA LA CÉDULA ${rol.cedula} SE AGREGÓ EXITOSAMENTE.`);
+  deshabilitarComponente('btnGuardarRol');
+};
+
+const calcularAporteEmpleador = (sueldo) => {
+  return (sueldo * 11.15) / 100;
+};
+
+const guardarRol = () => {
+  const cedula = recuperarDiv('infoCedula');
+  const nombre = recuperarDiv('infoNombre');
+  const sueldo = recuperarFloatDiv('infoSueldo');
+  const valorPagar = recuperarFloatDiv('infoPago');
+  const aporteIess = recuperarFloatDiv('infoIESS');
+  const aporteEmpleador = calcularAporteEmpleador(sueldo);
+  rol = {
+    cedula: cedula,
+    nombre: nombre,
+    sueldo: sueldo,
+    valorPagar: valorPagar,
+    aporteIess: aporteIess,
+    aporteEmpleador: aporteEmpleador,
+  };
+  agregarRol(rol);
 };
