@@ -46,6 +46,7 @@ const mostrarOpcionResumen = () => {
   mostrarComponente('divResumen');
   ocultarComponente('divRol');
   ocultarComponente('divEmpleado');
+  mostrarRoles();
 };
 const mostrarEmpleados = () => {
   let tabla =
@@ -336,6 +337,7 @@ const agregarRol = (rol) => {
   roles.push(rol);
   alert(`EL ROL PARA LA CÉDULA ${rol.cedula} SE AGREGÓ EXITOSAMENTE.`);
   deshabilitarComponente('btnGuardarRol');
+  mostrarTotales();
 };
 
 const calcularAporteEmpleador = (sueldo) => {
@@ -358,4 +360,40 @@ const guardarRol = () => {
     aporteEmpleador: aporteEmpleador,
   };
   agregarRol(rol);
+};
+
+const mostrarRoles = () => {
+  let tabla = `<table>
+                <tr>
+                  <th>CEDULA</th>
+                  <th>NOMBRE</th>
+                  <th>VALOR PAGAR</th>
+                  <th>APORTE EMPLEADO</th>
+                  <th>APORTE EMPLEADOR</th>
+                </tr>`;
+  for (let rol of roles) {
+    tabla += `<tr>
+                <td>${rol.cedula}</td>
+                <td>${rol.nombre}</td>
+                <td>${rol.valorPagar}</td>
+                <td>${rol.aporteIess}</td>
+                <td>${rol.aporteEmpleador}</td>
+              </tr>`;
+  }
+  tabla += '</table>';
+  mostrarHtml('tablaResumen', tabla);
+};
+
+const mostrarTotales = () => {
+  let totalAPagar = 0;
+  let totalEmpleado = 0;
+  let totalEmpleador = 0;
+  for (let rol of roles) {
+    totalAPagar += parseFloat(rol.valorPagar);
+    totalEmpleado += parseFloat(rol.aporteIess);
+    totalEmpleador += parseFloat(rol.aporteEmpleador);
+  }
+  mostrarTexto('infoTotalPago', totalAPagar);
+  mostrarTexto('infoAporteEmpleado', totalEmpleado);
+  mostrarTexto('infoAporteEmpresa', totalEmpleador);
 };
