@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarea Individual</title>
+    <script src="./orden.js"></script>
+    <script src="./utilitarios.js"></script>
+    <link rel="stylesheet" href="roles.css" />
+  </head>
+  <body onload="mostrarTabla()">
+    <div class="principal">
+      <div class="area">
+        <div class="ingresoDatos">
+          <label class="tituloCampo" for="txtNombre">Ingrese el nombre</label>
+          <div>
+            <input type="text" class="cajaTexto" id="txtNombre" />
+            <div id="errorNombre" class="error"></div>
+          </div>
+        </div>
+        <div class="ingresoDatos">
+          <label class="tituloCampo" for="txtEdad">Ingrese la edad</label>
+          <div>
+            <input type="text" class="cajaTexto" id="txtEdad" />
+            <div id="errorEdad" class="error"></div>
+          </div>
+        </div>
+        <div class="botones">
+          <div class="contenedorBoton">
+            <input
+              class="estiloBoton"
+              type="button"
+              value="Guardar"
+              onclick="agregarPersona()"
+            />
+          </div>
+          <div class="contenedorBoton">
+            <input
+              class="estiloBoton"
+              type="button"
+              value="Encontrar Mayor"
+              onclick="determinarMayor()"
+            />
+          </div>
+          <div class="contenedorBoton">
+            <input
+              class="estiloBoton"
+              type="button"
+              value="Encontrar Menor"
+              onclick="determinarMenor()"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="area">
+        <h2>PERSONA MAYOR</h2>
+        <div class="ingresoDatos">
+          <div class="tituloCampo">NOMBRE</div>
+          <div>
+            <div class="info" id="lblNombreMayor"></div>
+          </div>
+        </div>
+        <div class="ingresoDatos">
+          <div class="tituloCampo">EDAD</div>
+          <div>
+            <div class="info" id="lblEdadMayor"></div>
+          </div>
+        </div>
+        <h2>PERSONA MENOR</h2>
+        <div class="ingresoDatos">
+          <div class="tituloCampo">NOMBRE</div>
+          <div>
+            <div class="info" id="lblNombreMenor"></div>
+          </div>
+        </div>
+        <div class="ingresoDatos">
+          <div class="tituloCampo">EDAD</div>
+          <div>
+            <div class="info" id="lblEdadMenor"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="area">
+      <div id="tablaPersonas" class="areaTabla"></div>
+    </div>
+  </body>
+</html>
